@@ -241,4 +241,62 @@ const pets = [
     }
   ];
 
-//
+//make the app for dom rendering
+const petcrate = (divID, htmlpage) => {
+  const chosediv = document.querySelector(divID);
+
+  chosediv.innerHTML = htmlpage;
+  }
+
+//make the cards on the DOM
+const domcards = (array) => {
+  let domString = "";
+  for (const pet of array) {
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="${pet.imageUrl}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">${pet.name}</p>
+    </div>
+  </div>`;
+  }
+  petcrate(".petcrate", domString)
+};
+domcards(pets)
+
+//make da filter func
+const filter = (array, fauna) => {
+  const petfilter =[];
+  for (const item of array) {
+    if(item.type === fauna){
+      petfilter.push(item);
+    }
+  }
+  return petfilter;
+}
+
+//make da button
+const showallbtn = document.querySelector('#show-all');
+const showcatsbtn = document.querySelector('#cats');
+const showdogsbtn = document.querySelector('#dogs');
+const showdinosbtn = document.querySelector('#dinos');
+
+//make da filters
+showallbtn.addEventListener('click',() => {
+  domcards(pets)
+});
+showcatsbtn.addEventListener('click',() => {
+  const catpaws = filter(pets, "cat")
+  domcards(catpaws);
+});
+showdogsbtn.addEventListener('click',() => {
+  const dogpaws = filter(pets, "dog")
+  domcards(dogpaws);
+});
+showdinosbtn.addEventListener('click',() => {
+  const dinoclaws = filter(pets, "dino")
+  domcards(dinoclaws);
+});
+
+
+//render da page
+domcards(pets)
