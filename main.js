@@ -297,6 +297,20 @@ showdinosbtn.addEventListener('click',() => {
   domcards(dinoclaws);
 });
 
+//this selects the form part of the index.html
+//it works now because there is only 1 document to select from
+const form = document.querySelector('form');
+ const newpet = (e) => {
+  e.preventDefault();
+  const newpetcrap = {
+    id: pets.length + 1,
+    name: document.querySelector("#name").value,
+    color: document.querySelector("#color").value,
+    specialSkill: document.querySelector("#specialSkill").value,
+    type: document.querySelector("#type").value,
+    imageUrl: document.querySelector("#imageURL").value,
+  }
+ }
 
 //render da page
 domcards(pets)
