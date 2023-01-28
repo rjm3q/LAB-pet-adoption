@@ -6,25 +6,25 @@ body{
 .page-header{
   color: rgb(197, 230, 148);
   text-align: center;
-}
+};
 
 #buttcontainer{
   display: flex;
   align-self: center;
   justify-content: space-around;
-}
+};
 
 .petcrate {
   display: flex;
   flex-flow: row wrap;
   jus
-}
+};
 
 .card {
   margin: 10px;
   color: rgb(107, 156, 212);
-}
+};
 
 form {
   margin: 20px;
-}
+};
